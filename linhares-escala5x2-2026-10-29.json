@@ -1,0 +1,322 @@
+{
+  "empresa": "",
+  "funcionamento": "",
+  "domingo": "nao",
+  "observacoes": "",
+  "funcionarios": [
+    {
+      "nome": "Jack",
+      "dias": "seg-sex",
+      "dias_personalizados": "",
+      "entrada": "07:30",
+      "intervalo_inicio": "12:00",
+      "intervalo_fim": "13:30",
+      "saida": "18:00",
+      "semana": {
+        "0": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "1": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "2": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "3": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "4": {
+          "entrada": "08:00",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "14:00",
+          "saida": "18:00"
+        }
+      },
+      "folgasSim": [
+        0,
+        6
+      ],
+      "distribuicao": "igual",
+      "id": "f-mvtycq7l-3"
+    },
+    {
+      "nome": "Thaysa",
+      "dias": "seg-sex",
+      "dias_personalizados": "",
+      "entrada": "07:30",
+      "intervalo_inicio": "12:00",
+      "intervalo_fim": "13:30",
+      "saida": "18:00",
+      "semana": {
+        "0": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "1": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "2": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "3": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "4": {
+          "entrada": "08:00",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "14:00",
+          "saida": "18:00"
+        }
+      },
+      "folgasSim": null,
+      "distribuicao": "igual",
+      "id": "f-mvtycw5w-5"
+    },
+    {
+      "nome": "Davina",
+      "dias": "seg-sex",
+      "dias_personalizados": "",
+      "entrada": "07:30",
+      "intervalo_inicio": "12:00",
+      "intervalo_fim": "13:30",
+      "saida": "18:00",
+      "semana": {
+        "0": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "1": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "2": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "3": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "4": {
+          "entrada": "08:00",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "14:00",
+          "saida": "18:00"
+        }
+      },
+      "folgasSim": null,
+      "distribuicao": "igual",
+      "id": "f-mvtyd5o3-8"
+    },
+    {
+      "nome": "Igor",
+      "dias": "seg-sex",
+      "dias_personalizados": "",
+      "entrada": "07:30",
+      "intervalo_inicio": "12:00",
+      "intervalo_fim": "13:30",
+      "saida": "18:00",
+      "semana": {
+        "0": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "1": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "2": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "3": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "4": {
+          "entrada": "08:00",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "14:00",
+          "saida": "18:00"
+        }
+      },
+      "folgasSim": null,
+      "distribuicao": "igual",
+      "id": "f-mvtydbig-11"
+    },
+    {
+      "nome": "Zanadja",
+      "dias": "seg-sex",
+      "dias_personalizados": "",
+      "entrada": "07:30",
+      "intervalo_inicio": "12:00",
+      "intervalo_fim": "13:30",
+      "saida": "18:00",
+      "semana": {
+        "0": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "1": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "2": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "3": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "4": {
+          "entrada": "08:00",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "14:00",
+          "saida": "18:00"
+        }
+      },
+      "folgasSim": null,
+      "distribuicao": "igual",
+      "id": "f-mvtydox6-14"
+    },
+    {
+      "nome": "Mateus",
+      "dias": "seg-sex",
+      "dias_personalizados": "",
+      "entrada": "07:30",
+      "intervalo_inicio": "12:00",
+      "intervalo_fim": "13:30",
+      "saida": "18:00",
+      "semana": {
+        "0": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "1": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "2": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "3": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "4": {
+          "entrada": "08:00",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "14:00",
+          "saida": "18:00"
+        }
+      },
+      "folgasSim": null,
+      "distribuicao": "igual",
+      "id": "f-mvtye8t3-17"
+    },
+    {
+      "nome": "Marcus",
+      "dias": "seg-sex",
+      "dias_personalizados": "",
+      "entrada": "07:30",
+      "intervalo_inicio": "12:00",
+      "intervalo_fim": "13:30",
+      "saida": "18:00",
+      "semana": {
+        "0": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "1": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "2": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "3": {
+          "entrada": "07:30",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "13:30",
+          "saida": "18:00"
+        },
+        "4": {
+          "entrada": "08:00",
+          "intervalo_inicio": "12:00",
+          "intervalo_fim": "14:00",
+          "saida": "18:00"
+        }
+      },
+      "folgasSim": null,
+      "distribuicao": "igual",
+      "id": "f-mvtyep7f-20"
+    }
+  ],
+  "cenario": 42,
+  "versao": 2,
+  "exportado_em": "2026-10-29T19:59:08.522Z"
+}
