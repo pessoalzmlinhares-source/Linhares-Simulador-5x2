@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#102943" />
+  <meta name="description" content="Levantamento simples de horários de funcionários para simular escalas 5x2 de 42 e 40 horas semanais." />
+  <title>Levantamento de horários | Linhares Inteligência Contábil</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./logic.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container brandbar">
+      <div class="brandmark" aria-hidden="true">LI</div>
+      <div class="brandtext"><strong>LINHARES</strong><span>INTELIGÊNCIA CONTÁBIL</span></div>
+      <div class="brand-right">Planejamento de jornada <span aria-hidden="true">•</span> Escala 5x2</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="titulo">
+      <div class="hero-copy">
+        <p class="eyebrow">Levantamento simplificado</p>
+        <h1 id="titulo">Horários reais, <em>dia por dia.</em></h1>
+        <p>Cadastre a jornada atual em horário brasileiro (24 horas). O programa aceita dias com horários diferentes e simula opções de <strong>42h e 40h em escala 5x2</strong>.</p>
+      </div>
+      <div class="hero-aside" aria-label="Instruções rápidas">
+        <div><span>01</span> Identifique a empresa</div>
+        <div><span>02</span> Inclua os funcionários</div>
+        <div><span>03</span> Confira e imprima</div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="empresa-titulo">
+      <div class="panel-heading"><div><p class="kicker">01 / Empresa</p><h2 id="empresa-titulo">Identificação</h2></div><p class="panel-hint">Somente o essencial para começar.</p></div>
+      <div class="form-grid">
+        <label class="field">Nome da empresa <span class="required">*</span><input id="empresa" autocomplete="organization" placeholder="Ex.: Comércio Exemplo Ltda" maxlength="110" /></label>
+        <label class="field">Horário de funcionamento<input id="funcionamento" placeholder="Ex.: seg. a sáb., das 8h às 18h" maxlength="120" /></label>
+        <label class="field">Funciona aos domingos?<select id="domingo"><option value="nao">Não</option><option value="sim">Sim</option></select></label>
+      </div>
+    </section>
+
+    <section class="panel quick-panel" aria-labelledby="rapido-titulo">
+      <div class="panel-heading"><div><p class="kicker">02 / Preenchimento rápido</p><h2 id="rapido-titulo">Escreva como você fala</h2></div><p class="panel-hint">O programa tenta identificar os dados automaticamente.</p></div>
+      <div class="quick-grid">
+        <div>
+          <label class="field" for="frase">Descrição do funcionário</label>
+          <textarea id="frase" rows="3" maxlength="1600" placeholder="Ex.: Maria, segunda a quinta, 07:30 às 12:00 e 13:30 às 18:00; sexta, 08:00 às 12:00 e 14:00 às 18:00"></textarea>
+          <div class="quick-actions"><button id="interpretar" type="button" class="button primary"><span aria-hidden="true">✦</span> Interpretar e adicionar</button><button id="exemplo" type="button" class="button subtle">Preencher exemplo</button></div>
+          <p class="field-help">Aceita 7:30, 07:30, 7h30 e 18h, sempre mostrados em formato brasileiro 24h. Separe dias diferentes com ponto e vírgula ou ponto final. Revise o resultado.</p>
+        </div>
+        <aside class="suggestion" aria-label="Exemplos de frases">
+          <strong>Experimente um exemplo:</strong>
+          <button type="button" class="example-chip" data-example="João, segunda a quinta, 07:30 às 12:00 e 13:30 às 18:00; sexta, 08:00 às 12:00 e 14:00 às 18:00">Seg. a qui. 07:30–12:00 / 13:30–18:00; sex. 08:00–12:00 / 14:00–18:00</button>
+          <button type="button" class="example-chip" data-example="Ana, segunda a sábado, 08:00 às 12:00 e 13:00 às 17:00">Seg. a sáb., 08:00–12:00 / 13:00–17:00 (6x1)</button>
+          <button type="button" class="example-chip" data-example="Pedro, terça a sábado, 09:00 às 13:00 e 14:00 às 18:00">Ter. a sáb., 09:00–13:00 / 14:00–18:00</button>
+          <button type="button" class="example-chip" data-example="Carla, segunda a sexta, 08:00 às 12:00 e 13:00 às 17:00">Seg. a sex., 08:00–12:00 / 13:00–17:00 (40h)</button>
+          <span>A descrição será convertida em uma linha editável na tabela.</span>
+        </aside>
+      </div>
+      <div id="mensagem" class="notice" role="status" aria-live="polite" hidden></div>
+    </section>
+
+    <section class="panel" aria-labelledby="funcionarios-titulo">
+      <div class="panel-heading"><div><p class="kicker">03 / Horários atuais</p><h2 id="funcionarios-titulo">Relação de funcionários <span id="contador" class="inline-count">0</span></h2></div><div class="header-buttons"><button id="replicar" type="button" class="button subtle">Repetir último horário</button><button id="adicionar" type="button" class="button outline">+ Adicionar funcionário</button></div></div>
+      <p class="table-note">Use os modelos prontos ou clique em <strong>Horários por dia</strong> para preencher entrada, intervalo e saída diferentes em cada dia. A soma semanal será feita dia a dia.</p>
+      <div class="preset-toolbar no-print"><span>Preenchimento rápido:</span><button class="button subtle preset" type="button" data-preset="misto44">Modelo 44h • seg.–qui. / sex. diferentes</button><button class="button subtle preset" type="button" data-preset="segsex40">Modelo 40h • seg. a sex.</button><button class="button subtle preset" type="button" data-preset="segsab">Modelo 6x1 • seg. a sáb.</button><button class="button subtle preset" type="button" data-preset="tersab">Modelo 5x2 • ter. a sáb.</button>
+      <button class="button subtle preset" type="button" data-preset="comercio44">Comércio 6x1 • sábado 4h</button>
+      <button class="button subtle preset" type="button" data-preset="42horas">Transição 5x2 • 42h</button>
+      <button class="button subtle preset" type="button" data-preset="quadom">5x2 • quarta a domingo</button></div>
+      <div class="table-scroll"><table class="employees" id="tabela"><thead><tr><th scope="col">Funcionário</th><th scope="col">Dias de trabalho</th><th scope="col">Entrada</th><th scope="col">Intervalo início</th><th scope="col">Intervalo fim</th><th scope="col">Saída</th><th scope="col">Horas/semana</th><th scope="col" class="no-print">Ação</th></tr></thead><tbody id="linhas"></tbody></table></div>
+      <datalist id="nomes-recentes"></datalist>
+      <div class="bottom-row"><span id="resumo">Os totais serão calculados automaticamente.</span><button id="adicionar2" type="button" class="button subtle">+ Nova linha</button></div>
+      <label class="field notes-label">Observações (opcional)<textarea id="observacoes" rows="2" maxlength="600" placeholder="Ex.: o funcionário Pedro trabalha em horários alternados; precisamos manter cobertura aos sábados."></textarea></label>
+    </section>
+
+    <section class="panel simulation" aria-labelledby="simulacao-titulo">
+      <div class="panel-heading"><div><p class="kicker">04 / Apoio à análise</p><h2 id="simulacao-titulo">Simulações de 42h e 40h</h2></div><div class="segmented" role="group" aria-label="Cenário de jornada"><button type="button" id="btn42" class="selected" aria-pressed="true">42 horas</button><button type="button" id="btn40" aria-pressed="false">40 horas</button></div></div>
+      <div class="sim-lead"><div><span>Jornada diária em 5 dias</span><strong id="duracao-sim">8h24</strong></div><p>Escolha duas folgas para cada funcionário e a forma de distribuir as horas. Teste outros horários por dia: altere entrada, intervalo ou saída diretamente. O total recalcula e a jornada atual não é modificada.</p></div>
+      <div id="sim-lista" class="sim-lista"><p class="empty">Adicione os funcionários para visualizar exemplos de horários.</p></div>
+      <div class="sim-print-buttons"><button id="imprimir-sim" class="button primary" type="button">📄 PDF da simulação selecionada</button><button id="imprimir-ambos" class="button outline" type="button">PDF comparativo 42h e 40h</button><span class="sim-print-hint">Uma página organizada por funcionário e por cenário, com horários atuais e propostos em colunas.</span></div>
+    </section>
+
+    <section class="footer-actions" aria-label="Ações da ficha">
+      <div><strong>Pronto para encaminhar?</strong><span>Faça o PDF das propostas acima ou imprima apenas a ficha dos horários atuais.</span></div>
+      <div class="action-buttons">
+        <button id="exportar" class="button outline" type="button">Exportar dados</button>
+        <label class="button outline upload-button" for="importar">Importar dados</label><input type="file" id="importar" accept="application/json,.json" hidden />
+        <button id="limpar" class="button subtle" type="button">Limpar ficha</button>
+        <button id="imprimir" class="button primary" type="button">PDF da ficha atual</button>
+      </div>
+    </section>
+    <p class="disclaimer">Seus dados são salvos neste navegador para evitar perder o preenchimento. O preenchimento nesta página é processado localmente; o servidor Rust não recebe automaticamente cadastros. Este simulador não altera contratos. Atenção: jornada superior a 8 horas por dia durante a transição para 42 horas exige verificação de acordo/convenção coletiva. Confira intervalos, descanso, domingos, feriados e revezamentos antes de implantar.</p>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><div><strong>LINHARES INTELIGÊNCIA CONTÁBIL</strong><span>Confiança para estarmos juntos, parceria para irmos além.</span></div><span>Ferramenta de planejamento de jornada • v0.3</span></div></footer>
+  <datalist id="horas-brasil"><option value="06:00"></option><option value="06:30"></option><option value="07:00"></option><option value="07:30"></option><option value="08:00"></option><option value="08:30"></option><option value="09:00"></option><option value="09:30"></option><option value="10:00"></option><option value="11:00"></option><option value="12:00"></option><option value="13:00"></option><option value="13:30"></option><option value="14:00"></option><option value="14:30"></option><option value="15:00"></option><option value="16:00"></option><option value="17:00"></option><option value="17:30"></option><option value="18:00"></option><option value="18:30"></option><option value="19:00"></option><option value="20:00"></option></datalist>
+  <div id="print-report" aria-hidden="true"></div>
+  <template id="modelo-linha"><tr>
+    <td><input class="cell-input nome" data-key="nome" list="nomes-recentes" maxlength="70" placeholder="Nome do funcionário" aria-label="Nome do funcionário"></td>
+    <td><select class="cell-select dias" data-key="dias" aria-label="Dias trabalhados"><option value="">Selecione</option><option value="seg-sex">Seg. a sex.</option><option value="seg-sab">Seg. a sáb.</option><option value="ter-sab">Ter. a sáb.</option><option value="qua-dom">Qua. a dom.</option><option value="seg-dom">Seg. a dom.</option><option value="personalizado">Outros dias</option></select><input class="cell-input personalizado" data-key="dias_personalizados" placeholder="seg, qua, sex" aria-label="Dias personalizados" hidden></td>
+    <td><input type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="hh:mm" class="cell-input time" data-key="entrada" aria-label="Entrada"></td>
+    <td><input type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="hh:mm" class="cell-input time" data-key="intervalo_inicio" aria-label="Início do intervalo"></td>
+    <td><input type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="hh:mm" class="cell-input time" data-key="intervalo_fim" aria-label="Fim do intervalo"></td>
+    <td><input type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="hh:mm" class="cell-input time" data-key="saida" aria-label="Saída"></td>
+    <td><span class="total-cell">—</span></td>
+    <td class="no-print row-actions"><button type="button" class="button tiny edit-days">Horários por dia</button><button type="button" class="remove-row" aria-label="Remover funcionário" title="Remover funcionário">×</button></td>
+  </tr></template>
+</body>
+</html>
